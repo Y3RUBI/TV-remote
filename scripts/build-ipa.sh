@@ -13,7 +13,7 @@ import zipfile, plistlib
 with zipfile.ZipFile('build/MiBoxRemote-unsigned.ipa') as z:
     info = plistlib.loads(z.read('Payload/MiBoxRemote.app/Info.plist'))
     assert info['CFBundleIdentifier'] == 'app.miboxremote.iphone'
-    assert 'iphoneos' in info['CFBundleSupportedPlatforms']
+    assert 'iphoneos' in [platform.lower() for platform in info['CFBundleSupportedPlatforms']]
     assert 'Payload/MiBoxRemote.app/MiBoxRemote' in z.namelist()
 print('IPA package verified. Apple signing is required before installation.')
 PY
