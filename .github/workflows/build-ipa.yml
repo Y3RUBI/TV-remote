@@ -45,3 +45,4 @@ jobs:
             build-test.log
             build/Tests.xcresult
           retention-days: 7
+
