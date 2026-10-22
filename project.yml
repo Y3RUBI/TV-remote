@@ -22,7 +22,8 @@ targets:
     info:
       path: App/Info.plist
       properties:
-        CFBundleDisplayName: ريموت شاومي
+        CFBundleDisplayName: MiBox Remote
+        CFBundleName: MiBoxRemote
         LSRequiresIPhoneOS: true
         UILaunchScreen: {}
         UISupportedInterfaceOrientations: [UIInterfaceOrientationPortrait]
