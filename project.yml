@@ -1,0 +1,44 @@
+name: MiBoxRemote
+options:
+  bundleIdPrefix: app.miboxremote
+  deploymentTarget:
+    iOS: "16.0"
+settings:
+  base:
+    SWIFT_VERSION: "5.0"
+    TARGETED_DEVICE_FAMILY: "1"
+    CODE_SIGN_STYLE: Automatic
+    MARKETING_VERSION: "1.0.0"
+    CURRENT_PROJECT_VERSION: "1"
+targets:
+  MiBoxRemote:
+    type: application
+    platform: iOS
+    sources: [App]
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: app.miboxremote.iphone
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+    info:
+      path: App/Info.plist
+      properties:
+        CFBundleDisplayName: ريموت شاومي
+        LSRequiresIPhoneOS: true
+        UILaunchScreen: {}
+        UISupportedInterfaceOrientations: [UIInterfaceOrientationPortrait]
+        NSLocalNetworkUsageDescription: للعثور على Xiaomi TV Box والاقتران به والتحكم فيه على شبكتك المحلية.
+        NSBonjourServices: ["_androidtvremote2._tcp"]
+        ITSAppUsesNonExemptEncryption: false
+  MiBoxRemoteTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources: [Tests]
+    dependencies:
+      - target: MiBoxRemote
+schemes:
+  MiBoxRemote:
+    build:
+      targets:
+        MiBoxRemote: all
+    test:
+      targets: [MiBoxRemoteTests]
