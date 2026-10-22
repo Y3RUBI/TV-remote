@@ -32,6 +32,9 @@ targets:
   MiBoxRemoteTests:
     type: bundle.unit-test
     platform: iOS
+    settings:
+      base:
+        GENERATE_INFOPLIST_FILE: YES
     sources: [Tests]
     dependencies:
       - target: MiBoxRemote
